@@ -15,8 +15,8 @@ export function Navbar() {
             </Link>
           </li>
           <li>
-            <Link href='packages'>
-                Our Packages
+            <Link href='services'>
+                Services
             </Link>
           </li>
           <li>
