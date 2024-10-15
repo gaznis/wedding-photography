@@ -3,7 +3,7 @@ import React from "react"
 import { MENUITEMS } from "@/constants/menuItems";
 import { Link } from "@nextui-org/link";
 import { Button } from "antd";
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from "@nextui-org/navbar";
+import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenu, NavbarMenuItem } from "@nextui-org/navbar";
 import { DragHandleRounded, CloseRounded } from '@mui/icons-material';
 
 export function Nav() {
