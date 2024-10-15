@@ -1,4 +1,3 @@
-import { Footer } from "@/components/footer";
 import { Nav as Navbar } from "@/components/navbar";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
@@ -35,7 +34,6 @@ export default function RootLayout({
           <Navbar />
           <Divider className="border-l-neutral-950"/>
           {children}
-          {/* <Footer /> */}
         </div>
       </body>
     </html>
