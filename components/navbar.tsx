@@ -1,36 +1,39 @@
+"use client";
 import React from "react"
-import Link from "next/link"
+import { MENUITEMS } from "@/constants/menuItems";
+import { Link } from "@nextui-org/link";
+import { Button } from "antd";
+import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from "@nextui-org/navbar";
+import { DragHandleRounded, CloseRounded } from '@mui/icons-material';
 
-export function Navbar() {
+export function Nav() {
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
   return (
-    <header>
-      <nav className="container flex flex-col items-start justify-between px-6 mx-auto md:flex-row md:items-center">
-        <Link href="/">
-          Zenario
-        </Link>
-        <ul className="grid grid-flow-col gap-4 mx-auto mt-6 md:mt-0 auto-cols-auto md:auto-rows-auto md:gap-8 lg:gap-12">
-          <li>
-            <Link href='/'>
-                Home
+    <Navbar isBordered isBlurred isMenuOpen={isMenuOpen}
+      className="mb-6">
+      <NavbarBrand className="absolute left-5">
+        <p className="font-bold text-inherit">ZENARIO</p>
+      </NavbarBrand>
+      <NavbarContent className="md:flex gap-4 hidden">
+        {MENUITEMS.map((item) => (
+          <NavbarItem key={item.id} >
+          <Link href={item.href}>
+          {item.title}
+          </Link>
+          </NavbarItem>
+        ))}
+      </NavbarContent>
+      <Button className="md:hidden absolute right-5" onClick={() =>setIsMenuOpen(!isMenuOpen)} type="text" shape="round" icon={isMenuOpen ? <CloseRounded /> : <DragHandleRounded />} />
+      <NavbarMenu className="navbar-menu">
+        {MENUITEMS.map((item) => (
+          <NavbarMenuItem key={item.id} className="navbar-menu-item">
+            <Link href={item.href} >
+            {item.title}
             </Link>
-          </li>
-          <li>
-            <Link href='services'>
-                Services
-            </Link>
-          </li>
-          <li>
-            <Link href='portfolio'>
-                Portfolio
-            </Link>
-          </li>
-          <li>
-            <Link href='contact'>
-                Contact Us
-            </Link>
-          </li>
-        </ul>
-      </nav>
-    </header>
+          </NavbarMenuItem>
+        ))}
+      </NavbarMenu>
+    </Navbar>
   )
 }

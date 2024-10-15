@@ -1,7 +1,8 @@
 import { Footer } from "@/components/footer";
-import { Navbar } from "@/components/navbar";
+import { Nav as Navbar } from "@/components/navbar";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Divider } from "antd";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -32,8 +33,9 @@ export default function RootLayout({
       >
         <div className="mt-5">
           <Navbar />
+          <Divider className="border-l-neutral-950"/>
           {children}
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </body>
     </html>
