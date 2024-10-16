@@ -35,6 +35,7 @@ export default function RootLayout({
           <Navbar />
           <Divider className="border-l-neutral-950"/>
           {children}
+          <Divider className="border-l-neutral-950 md:hidden" />
           <MobileNav />
         </div>
       </body>

@@ -4,31 +4,30 @@ import { SERVICES } from '@/constants/services'
 
 export default function Page() {    
     return (
-        <div className="overflow-x-auto md:overflow-x-hidden pb-4">
-
+        <div className="overflow-x-hidden">
             <Row
                 align="stretch"
                 gutter={[16, 24]}
-                className="flex flex-nowrap sm:flex-wrap"
-                style={{ minWidth: 'min-content' }}
+                className='min-w-min'
+                justify={'space-evenly'}
             >
             {SERVICES.map((service) => (
-                <Col
+            <Col
                     sm={{
-                        span:24,
+                        span: 24                        
                     }}
                     md={{
-                        span:4
+                        span: 4
                     }}
-                    offset={1} key={service.id}>
+                     key={service.id}>
                     <Card
                         bordered={false}
                         size='small'
-            hoverable
+                        hoverable
                     style={{
-                        width: 240,
+                        width: "100%",
              }}
-                        cover={<Image preview={false} alt={service.alt} src={service.src} style={{ height: 240, alignItems: 'center', overflow: 'hidden', objectFit: 'scale-down' }}/>}
+                        cover={<Image preview={false} alt={service.alt} src={service.src} style={{ width:'100%', height: 240, alignItems: 'center', overflow: 'hidden', objectFit: 'scale-down' }}/>}
                 >
                         <Descriptions title={service.title} size='small'>
                             <p>
@@ -42,7 +41,7 @@ export default function Page() {
                             <p> &#8377; {service.price}</p>
                             </strong>
                     </div>
-        </Card>
+                    </Card>
             </Col>
                 )
                 )}
