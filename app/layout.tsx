@@ -1,4 +1,5 @@
 import { Nav as Navbar } from "@/components/navbar";
+import { MobileNav } from "@/components/mobileNav";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Divider } from "antd";
@@ -34,6 +35,7 @@ export default function RootLayout({
           <Navbar />
           <Divider className="border-l-neutral-950"/>
           {children}
+          <MobileNav />
         </div>
       </body>
     </html>

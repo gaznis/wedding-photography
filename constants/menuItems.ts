@@ -1,22 +1,31 @@
+import { GoHomeFill } from "react-icons/go";
+import { FaCameraRetro } from "react-icons/fa";
+import { IoIosImages } from "react-icons/io";
+import { MdChat } from "react-icons/md";
+
 export const MENUITEMS = [
     {
     id:0,
         title: "Home",
-    href: "/"
+        href: "/",
+        icon: GoHomeFill
 },
 {
     id:1,
         title: "Services",
-        href: "services"
+    href: "services",
+    icon: FaCameraRetro
 },
     {
     id:2,
         title: "Portfolio",
-        href: "portfolio"
+        href: "portfolio",
+        icon: IoIosImages
 },
     {
     id:3,
         title: "Contact Us",
-        href: "contact"
+        href: "contact",
+        icon: MdChat 
 }
 ];
