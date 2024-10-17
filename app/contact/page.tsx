@@ -8,7 +8,8 @@ import {
     FormControl,
     FormLabel,
     RadioGroup,
-    Radio
+    Radio,
+    Box
 } from '@mui/material';
 import * as yup from 'yup';
 import { useFormik } from 'formik';
@@ -54,8 +55,11 @@ export default function Contact() {
     });
 
     return (
+        <Box
+            maxWidth='60%'
+        >
         <form onSubmit={formik.handleSubmit} className="rounded-lg shadow-xl flex flex-col px-8 py-8">
-            <h1 className="text-2xl font-bold dark:text-gray-50">
+            <h1 className="text-2xl font-bold">
                 Get in touch with us
             </h1>
             <div>
@@ -119,10 +123,11 @@ export default function Contact() {
                 <TextField
                     variant="standard"
                     select
-                    defaultValue='Hindu'
                     name='type'
                     value={formik.values.type}
                     onChange={formik.handleChange}
+                    label="Select your wedding type"
+                    fullWidth
                 >
                     {weddingType.map((option) => (
                         <MenuItem key={option} value={option}>
@@ -159,5 +164,6 @@ export default function Contact() {
                 Submit
             </Button>
         </form>
+        </Box>
     );
 }

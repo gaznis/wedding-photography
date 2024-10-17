@@ -1,25 +1,24 @@
 import React from "react"
 import { MENUITEMS } from "@/constants/menuItems";
 import { Link } from "@nextui-org/link";
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem } from "@nextui-org/navbar";
+import {Navbar, NavbarBrand } from "@nextui-org/navbar";
 
 export function Nav() {
 
   return (
-    <Navbar isBlurred 
-      className="mb-6">
+    <div className="mb-6">
+    <Navbar isBlurred >
       <NavbarBrand className="absolute left-5">
         <p className="font-bold text-inherit">ZENARIO</p>
       </NavbarBrand>
-      <NavbarContent className="md:flex hidden">
+      </Navbar>
+      <div className="hidden md:flex justify-center gap-6">
         {MENUITEMS.map((item) => (
-          <NavbarItem key={item.id} className="justify-center">
-          <Link href={item.href}>
+          <Link href={item.href} key={item.id}>
           {item.title}
           </Link>
-          </NavbarItem>
         ))}
-      </NavbarContent>
-    </Navbar>
+      </div>
+    </div>
   )
 }
