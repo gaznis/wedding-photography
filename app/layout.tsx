@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Divider } from "antd";
 import "./globals.css";
+import { AntdRegistry } from '@ant-design/nextjs-registry';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -32,11 +33,13 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div className="mt-5">
+          <AntdRegistry>
           <Navbar />
           <Divider className="border-l-neutral-950"/>
           {children}
           <Divider className="border-l-neutral-950 md:hidden" />
           <MobileNav />
+          </AntdRegistry>
         </div>
       </body>
     </html>
