@@ -6,7 +6,7 @@ import {Navbar, NavbarBrand } from "@nextui-org/navbar";
 export function Nav() {
 
   return (
-    <div className="mb-6">
+    <div>
     <Navbar isBlurred >
       <NavbarBrand className="absolute left-5">
         <p className="font-bold text-inherit">ZENARIO</p>
