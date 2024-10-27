@@ -1,14 +1,19 @@
-import { Carousel, Image } from 'antd';
+import { Carousel } from 'antd';
+import Image from 'next/image'
 import { HOME } from '@/constants/home';
 
 export default function Home() {
   return (
-    <div id='slides' className="fixed -z-50 top-0 h-screen w-screen overflow-hidden">
-      <div className="absolute top-0  w-full h-16 bg-white bg-opacity-20 backdrop-blur-sm z-10" />
-      <Carousel autoplay className="h-full w-full">
+    <div id='slides' className="fixed inset-0 -z-50 overflow-hidden">
+      <Carousel fade adaptiveHeight autoplay className="h-screen w-screen">
         {HOME.map((slide) => (
-          <div key={slide.id} className="h-full w-full">
-            <Image className="w-full h-full object-cover" preview={false} alt={slide.alt} src={slide.src} />
+          <div key={slide.id} className="h-screen w-screen">
+            <Image className="w-full h-full object-cover"
+              alt={slide.alt}
+              src={slide.src}
+              fill={true}
+              loading='lazy'
+            />
           </div>
         ))}
       </Carousel>

@@ -27,7 +27,11 @@ export default function Page() {
                     style={{
                         width: "100%",
              }}
-                        cover={<Image preview={false} alt={service.alt} src={service.src} style={{ width:'100%', height: 240, alignItems: 'center', overflow: 'hidden', objectFit: 'scale-down' }}/>}
+                        cover={<Image
+                            preview={false}
+                            alt={service.alt}
+                            src={service.src}
+                            style={{ width: '100%', height: 240, alignItems: 'center', overflow: 'hidden', objectFit: 'scale-down' }} />}
                 >
                         <Descriptions title={service.title} size='small'>
                             <p>

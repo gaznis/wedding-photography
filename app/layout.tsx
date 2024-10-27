@@ -2,7 +2,6 @@ import { Nav as Navbar } from "@/components/navbar";
 import { MobileNav } from "@/components/mobileNav";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Divider } from "antd";
 import "./globals.css";
 import { AntdRegistry } from '@ant-design/nextjs-registry';
 
@@ -32,12 +31,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="mt-5">
+        <div>
           <AntdRegistry>
           <Navbar />
-          <Divider className="border-l-neutral-950"/>
           {children}
-          <Divider className="border-l-neutral-950 md:hidden" />
           <MobileNav />
           </AntdRegistry>
         </div>
