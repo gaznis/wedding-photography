@@ -1,39 +1,22 @@
-import { Carousel, Card } from 'antd';
-import Image from 'next/image'
-import { HOME } from '@/constants/home';
+import ImageSlider from "@/components/imageSlider";
+
 
 export default function Home() {
   return (
-    <div>
-    <div id='slides' className="fixed inset-0 -z-50 overflow-hidden">
-      <Carousel fade adaptiveHeight autoplay className="h-screen w-screen">
-        {HOME.map((slide) => (
-          <div key={slide.id} className="h-screen w-screen">
-            <Image className="w-full h-full object-cover"
-              alt={slide.alt}
-              src={slide.src}
-              fill={true}
-              loading='lazy'
-            />
-          </div>
-        ))}
-      </Carousel>
+    <div className="absolute">
+      <div>
+      <ImageSlider />
       </div>
-      <div className='md:w-1/3 absolute md:right-5 md:bottom-10 bottom-12'>
-        <Card size='small' title='Lorem Ipsum' style={
-          {
-            backgroundColor: 'rgba(255, 255, 255, 0.5)',
-            backdropFilter: 'blur(5px)',
-            WebkitBackdropFilter: 'blur(10px)'
-          }
-        }>
-        You can start editing the page by modifying. The page auto-updates as you edit the file.
-        You can start editing the page by modifying. The page auto-updates as you edit the file.
-        You can start editing the page by modifying. The page auto-updates as you edit the file.
-        You can start editing the page by modifying. The page auto-updates as you edit the file.
-        You can start editing the page by modifying. The page auto-updates as you edit the file.
-      </Card>
+      <div className="flex p-3 justify-center">
+        <h1>Photography</h1>
       </div>
+      <div className="p-3 mx-10">
+        <span>
+          In ac ante neque. Maecenas nec odio aliquet turpis pellentesque sagittis a varius neque. Donec et consectetur sapien, sed lobortis neque. Integer non aliquam sem, a semper augue. Cras efficitur molestie sapien vitae volutpat. Donec id libero justo. Sed et elementum metus, eget facilisis urna. In fermentum felis non ex scelerisque venenatis quis ut tortor. Maecenas vehicula eleifend tortor
+
+        </span>
+      </div>
+
     </div>
   );
 }
