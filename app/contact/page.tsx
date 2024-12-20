@@ -3,7 +3,6 @@ import {
     Button,
     FormControlLabel,
     InputLabel,
-    MenuItem,
     TextField,
     FormControl,
     FormLabel,
@@ -56,7 +55,9 @@ export default function Contact() {
 
     return (
         <Box
-            maxWidth='60%'
+            right={0}
+            position='fixed'
+            width={'45%'}
         >
         <form onSubmit={formik.handleSubmit} className="rounded-lg shadow-xl flex flex-col px-8 py-8">
             <h1 className="text-2xl font-bold">
@@ -118,23 +119,20 @@ export default function Contact() {
                     helperText={formik.touched.email && formik.errors.email}
                 />
             </div>
-            <div>
-                <InputLabel>Wedding Type</InputLabel>
-                <TextField
-                    variant="standard"
-                    select
-                    name='type'
-                    value={formik.values.type}
-                    onChange={formik.handleChange}
-                    label="Select your wedding type"
-                    fullWidth
-                >
-                    {weddingType.map((option) => (
-                        <MenuItem key={option} value={option}>
-                            {option}
-                        </MenuItem>
-                    ))}
-                </TextField>
+            <div>   
+                    <FormControl>
+                        <FormLabel>Wedding Type</FormLabel>
+                        <RadioGroup
+                            defaultValue="true"
+                            name="type"
+                            row
+                            onChange={formik.handleChange}
+                        >
+                            {weddingType.map((option) => 
+                                <FormControlLabel key={option} value={option} control={<Radio />} label={option} />
+                            )}
+                        </RadioGroup>
+                    </FormControl>
             </div>
             <div>
                 <InputLabel>Destination</InputLabel>
