@@ -10,13 +10,15 @@ import {
     Radio,
     Box
 } from '@mui/material';
+import Image from 'next/image'
 import * as yup from 'yup';
 import { useFormik } from 'formik';
+import profilePic from '/public/assets/1.jpg'
 
 
 export default function Contact() {
 
-    const weddingType = ['Hindu','Muslim','Christian','Non Religious'];
+    const weddingType = ['Hindu', 'Muslim', 'Christian', 'Non Religious'];
 
     const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
@@ -54,44 +56,33 @@ export default function Contact() {
     });
 
     return (
+        <div>
+            <Image className="object-cover fixed"
+                alt="alt"
+                quality={100}
+                src={profilePic}
+                loading='lazy'
+            />
         <Box
-            right={0}
-            position='fixed'
-            width={'45%'}
+                width={'45%'}
+                className="bg-white bg-opacity-40 backdrop-blur-md"
         >
-        <form onSubmit={formik.handleSubmit} className="rounded-lg shadow-xl flex flex-col px-8 py-8">
-            <h1 className="text-2xl font-bold">
-                Get in touch with us
-            </h1>
-            <div>
-                <InputLabel>Your Name</InputLabel>
-                <TextField
-                    variant="standard"
-                    type='text'
-                    name='name'
-                    placeholder='What should we call you?'
-                    value={formik.values.name}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    error={formik.touched.name && Boolean(formik.errors.name)}
-                    helperText={formik.touched.name && formik.errors.name}
-                />
-            </div>
-            <div>
-                <FormControl>
-                    <FormLabel>Preferred mode of communication</FormLabel>
-                    <RadioGroup
-                        defaultValue="true"
-                        name="whatsapp"
-                        row
+            <form onSubmit={formik.handleSubmit} className="grid space-y-3 rounded-lg shadow-xl p-3 m-8 px-8">
+                <div>
+                    <InputLabel>What should we call you?</InputLabel>
+                    <TextField
+                        variant="standard"
+                        type='text'
+                        name='name'
+                        placeholder='Your name'
+                        value={formik.values.name}
                         onChange={formik.handleChange}
-                    >
-                        <FormControlLabel value="true" control={<Radio />} label="WhatsApp" />
-                        <FormControlLabel value="false" control={<Radio />} label="Call" />
-                    </RadioGroup>
-                </FormControl>
-            </div>
-            <div>
+                        onBlur={formik.handleBlur}
+                        error={formik.touched.name && Boolean(formik.errors.name)}
+                        helperText={formik.touched.name && formik.errors.name}
+                    />
+                </div>
+                <div>
                 <InputLabel>Contact Number</InputLabel>
                 <TextField
                     variant="standard"
@@ -104,22 +95,8 @@ export default function Contact() {
                     error={formik.touched.number && Boolean(formik.errors.number)}
                     helperText={formik.touched.number && formik.errors.number}
                 />
-            </div>
-            <div>
-                <InputLabel>Email Address</InputLabel>
-                <TextField
-                    variant="standard"
-                    type='text'
-                    name='email'
-                    placeholder='Email Address'
-                    value={formik.values.email}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    error={formik.touched.email && Boolean(formik.errors.email)}
-                    helperText={formik.touched.email && formik.errors.email}
-                />
-            </div>
-            <div>   
+                </div>
+                <div>
                     <FormControl>
                         <FormLabel>Wedding Type</FormLabel>
                         <RadioGroup
@@ -128,40 +105,36 @@ export default function Contact() {
                             row
                             onChange={formik.handleChange}
                         >
-                            {weddingType.map((option) => 
+                            {weddingType.map((option) =>
                                 <FormControlLabel key={option} value={option} control={<Radio />} label={option} />
                             )}
                         </RadioGroup>
                     </FormControl>
-            </div>
-            <div>
-                <InputLabel>Destination</InputLabel>
-                <TextField
-                    variant="standard"
-                    type='text'
-                    name='destination'
-                    placeholder='Wedding destination'
-                    value={formik.values.destination}
-                    onChange={formik.handleChange}
-                />
-            </div>
-            <div>
-                <InputLabel>Wedding Date</InputLabel>
-                <TextField
-                    variant="standard"
-                    type="date"
-                    name='date'
-                    value={formik.values.date}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    error={formik.touched.date && Boolean(formik.errors.date)}
-                    helperText={formik.touched.date && formik.errors.date}
-                />
-            </div>
-            <Button type='submit' variant='contained' sx={{ mt: '15px' }}>
-                Submit
-            </Button>
-        </form>
+                </div>
+                <div className='flex gap-x-6'>
+                    <TextField
+                        variant="standard"
+                        type='text'
+                        name='destination'
+                        placeholder='Wedding destination'
+                        value={formik.values.destination}
+                        onChange={formik.handleChange}
+                    />
+                    <TextField
+                        variant="standard"
+                        type='text'
+                        name='destination'
+                        placeholder='Dates'
+                        value={formik.values.date}
+                        onChange={formik.handleChange}
+                    />
+
+                </div>
+                <Button type='submit' variant='contained' sx={{ mt: '15px' }}>
+                    Submit
+                </Button>
+            </form>
         </Box>
+        </div>
     );
 }
