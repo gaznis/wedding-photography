@@ -18,12 +18,18 @@ export const MENUITEMS = [
 },
     {
     id:2,
+        title: "Packages",
+        href: "packages",
+        icon: FaCameraRetro
+},
+    {
+    id:3,
         title: "Portfolio",
         href: "portfolio",
         icon: IoIosImages
 },
     {
-    id:3,
+    id:4,
         title: "Contact Us",
         href: "contact",
         icon: MdChat 
